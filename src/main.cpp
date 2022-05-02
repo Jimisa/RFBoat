@@ -4,8 +4,8 @@
 #define channel 100
 #define motorPower 120
 
-#define pinCE 10
-#define pinCSN 9
+#define pinCE 8
+#define pinCSN 7
 
 // port motor
 #define pinEN12 3
@@ -15,7 +15,7 @@
 // starboard motor
 #define pinEN34 5
 #define pinIN3 6
-#define pinIN4 7
+#define pinIN4 9
 
 RF24 radio(pinCE,pinCSN);
 
@@ -53,11 +53,11 @@ void setup() {
 void loop() {
   if (radio.available()) {
     radio.read(&dataReceived,sizeof(dataReceived));
-    Serial.print("Message reçu : ");
+    //Serial.print("Message reçu : ");
     Serial.println(dataReceived,BIN);
     leftSignal = dataReceived >> 4;
     rightSignal = dataReceived & byte(15);
-    Serial.println(str+"LeftSignal : "+leftSignal+", rightSignal : "+rightSignal);
+    //Serial.println(str+"LeftSignal : "+leftSignal+", rightSignal : "+rightSignal);
     
     switch (leftSignal)
     {
