@@ -1,7 +1,14 @@
 #include <Arduino.h>
 #include <RF24.h>
 
-#define channel 100
+/* channels configuration :
+*  white  100
+*  blue   102
+*  green  104
+*  red    106
+*  yellow 108
+*/
+#define channel 108
 #define motorPower 120
 
 #define pinCE 8
